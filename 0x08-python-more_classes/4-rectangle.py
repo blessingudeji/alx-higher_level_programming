@@ -66,9 +66,9 @@ class Rectangle:
         """modifies the string
 
         """
-        if not self.perimeter:
-            return ""
-        return('\n'.join('#' * self.width for x in range(self.height)))
+        if self.width == 0 or self.height == 0:
+             return ""
+        return '\n' .join('#' * self.width for _ in range(self.height))
 
     def __repr__(self):
         return("Rectangle({}, {})".format(self.width, self.height))
