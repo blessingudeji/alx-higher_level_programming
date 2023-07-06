@@ -5,7 +5,7 @@
 
 
 class Rectangle:
-    """Represents a rectangle object
+    """Initializes a rectangle object
 
     """
     def __init__(self, width=0, height=0):
@@ -63,9 +63,12 @@ class Rectangle:
         return (self.width * 2) + (self.height * 2)
 
     def __str__(self):
-        """returns modified string
+        """modifies the string
 
         """
-        if self.width == 0 or self.height == 0:
+        if not self.perimeter:
             return ""
-        return '\n' .join('#' * self.width for _ in range(self.height))
+        return('\n'.join('#' * self.width for x in range(self.height)))
+
+    def __repr__(self):
+        return("Rectangle({}, {})".format(self.width, self.height))
