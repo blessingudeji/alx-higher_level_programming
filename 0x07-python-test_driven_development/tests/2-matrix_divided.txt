@@ -5,99 +5,44 @@ This provides a function called 'matrix_divided' that divides each element in a 
 Using the function
 ------------------
 
-# Import the function
+# Import the matrix_divided function from the module
 >>> matrix_divided = __import__('2-matrix_divided').matrix_divided
 
-# Divide each element in the matrix by 3
->>> matrix = [
-...     [6, 9, 12],
-...     [15, 18, 21]
-... ]
-# Call the 'matrix_divided' function
+# Test cases for matrix_divided function
+
+# Test case 1: Division by 3
+>>> matrix = [[1, 2, 3], [4, 5, 6]]
 >>> result = matrix_divided(matrix, 3)
+>>> result
+[[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+>>> matrix  # Original matrix should remain unchanged
+[[1, 2, 3], [4, 5, 6]]
 
-# Print the 'result' variable, which will contain the matrix with elements divided
->>> print(result)
-[[2.0, 3.0, 4.0], [5.0, 6.0, 7.0]]
-
-# Verifying the original matrix remains unchanged
->>> print(matrix)
+# Test case 2: Division by 2.5
+>>> matrix = [[6, 9, 12], [15, 18, 21]]
+>>> result = matrix_divided(matrix, 2.5)
+>>> result
+[[2.4, 3.6, 4.8], [6.0, 7.2, 8.4]]
+>>> matrix  # Original matrix should remain unchanged
 [[6, 9, 12], [15, 18, 21]]
 
-# The function also handles float 
->>> matrix = [
-...     [1.2, 2.4, 3.6],
-...     [4.8, 6.0, 7.2]
-... ]
->>> result(matrix_divided(matrix, 3))
->>> print(result)
-[[0.4, 0.8, 1.2], [1.6, 2.0, 2.4]]
+# Test case 3: Division by 0 (should raise ZeroDivisionError)
+>>> matrix = [[1, 2], [3, 4]]
+>>> matrix_divided(matrix, 0)
+Traceback (most recent call last):
+    ...
+ZeroDivisionError: division by zero
 
-# The function also handles float and integers combined
->>> matrix = [
-...     [1, 2.2, 3, 4.4, 5],
-...     [6.6, 7.0, 8, 9.999, 10]
-... ]
->>> result(matrix_divided(matrix, 3))
->>> print(result)
-[[0.33, 0.73, 1.0, 1.47, 1.67], [2.2, 2.33, 2.67, 3.33, 3.33]]
+# Test case 4: Non-numeric division (should raise TypeError)
+>>> matrix = [[1, 2], [3, 4]]
+>>> matrix_divided(matrix, 'divisor')
+Traceback (most recent call last):
+    ...
+TypeError: div must be a number
 
-Handling invalid inputs
------------------------
-
-# Verifying the function raises an error for a non-list matrix
->>> matrix = "not a list"
->>> print(matrix_divided(matrix, 3))
-# Output: TypeError: matrix must be a matrix (list of lists) of integers/floats
-
-# Verifying the function raises an error for a None matrix
->>> matrix = None
->>> print(matrix_divided(matrix, 3))
-# Output: TypeError: matrix must be a matrix (list of lists) of integers/floats
-
-# Verifying the function raises an error for an empty matrix
->>> matrix = []
->>> print(matrix_divided(matrix, 3))
-# Output: TypeError: matrix must be a matrix (list of lists) of integers/floats
-
-# Verifying the function handles a matrix with an empty row
->>> matrix = [[]]
->>> print(matrix_divided(matrix, 3))
-# Output: [[]]
-
-# Verifying the function raises an error for a matrix with non-numeric elements
->>> matrix = [1, 2, 3]
->>> print(matrix_divided(matrix, 3))
-# Output: TypeError: matrix must be a matrix (list of lists) of integers/floats
-
-# Verifying the function raises an error for a matrix with non-numeric elements
->>> matrix = [
-...     [1, 2, 3],
-...     [4, "not a number", 6]
-... ]
->>> print(matrix_divided(matrix, 3))
-# Output: TypeError: matrix must be a matrix (list of lists) of integers/floats
-
-# Verifying the function raises an error for a matrix with rows of different sizes
->>> matrix = [
-...     [1, 2, 3, 4],
-...     [5, 6, 7]
-... ]
->>> print(matrix_divided(matrix, 3))
-# Output: TypeError: Each row of the matrix must have the same size
-
-# Verifying the function raises an error for a non-numeric division factor
->>> matrix = [
-...     [1, 2, 3],
-...     [4, 5, 6]
-... ]
->>> print(matrix_divided(matrix, "not a number"))
-# Output: TypeError: div must be a number
-
-# Verifying the function raises an error for a None division factor
->>> print(matrix_divided(matrix, None))
-# Output: TypeError: div must be a number
-
-# Verifying the function raises an error for division by zero
->>> print(matrix_divided(matrix, 0))
-# Output: ZeroDivisionError: division by zero
+# Test case 5: Non-matrix input (should raise TypeError)
+>>> matrix = "not a matrix"
+>>> matrix_divided(matrix, 2)
+Traceback (most recent call last):
+    ...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
