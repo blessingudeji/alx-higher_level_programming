@@ -1,0 +1,78 @@
+The `0-add_integer` Module
+==========================
+
+This module contains a function called 'add_integer' that is used to add up two numbers
+
+Using `add_integer` function
+----------------------------
+
+Import the function from the module:
+>>> add_integer = __import__('0-add_integer').add_integer
+
+Using function for Addition:
+>>> add_integer(6, 1)
+7
+
+>>> add_integer(-20, -80)
+-100
+
+>>> add_integer(-1, 5)
+4
+
+>>> add_integer(2.0, 4.0)
+6
+
+>>> add_integer(2)
+100
+
+Handling Invalid Inputs:
+>>> add_integer(14, "hello")
+Traceback (most recent call last):
+    ...
+TypeError: b must be an integer
+
+>>> add_integer(None)
+Traceback (most recent call last):
+    ...
+TypeError: a must be an integer
+
+>>> add_integer('1', 5)
+Traceback (most recent call last):
+    ...
+TypeError: a must be an integer
+
+>>> add_integer('abc', 'def')
+Traceback (most recent call last):
+    ...
+TypeError: a must be an integer
+
+>>> add_integer((1, 2, 3))
+Traceback (most recent call last):
+    ...
+TypeError: a must be an integer
+
+>>> add_integer(10, [0])
+Traceback (most recent call last):
+    ...
+TypeError: b must be an integer
+
+>>> add_integer("Add")
+Traceback (most recent call last):
+    ...
+TypeError: a must be an integer
+
+Special Cases:
+>>> add_integer(float('inf'), 0)
+Traceback (most recent call last):
+    ...
+OverflowError: cannot convert float infinity to integer
+
+>>> add_integer(float('inf'), float('-inf'))
+Traceback (most recent call last):
+    ...
+OverflowError: cannot convert float infinity to integer
+
+>>> add_integer(float('NaN'))
+Traceback (most recent call last):
+    ...
+ValueError: cannot convert float NaN to integer

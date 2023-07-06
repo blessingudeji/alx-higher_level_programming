@@ -1,0 +1,54 @@
+The `say_my_name` module
+======================
+This provides a function called 'say_my_name' that prints a formatted string containing a First and Last name.
+
+Using ``say_my_name``
+-------------------
+
+# Import the function from the module:
+	>>> say_my_name = __import__("3-say_my_name").say_my_name
+
+# Verifying first and last name input:
+>>> say_my_name("Beauty", "Rogers")
+My name is Beauty Rogers
+
+# Verifying only first name input:
+>>> say_my_name("Beauty")
+My name is Beauty
+
+# Verifying only last name as input:
+>>> say_my_name("Rogers")
+My name is Rogers
+
+# Handling Invalid Inputs
+-----------------------
+
+# Verifying None as first name:
+	 >>> say_my_name(None, "Udeji")
+	 Traceback (most recent call last):
+         ...
+# Output: TypeError: first_name must be a string
+
+# Verifying None as last name:
+	 >>> say_my_name("Blessing", None)
+	 Traceback (most recent call last):
+         ...
+# Output: TypeError: last_name must be a string
+
+# Verifying integer as first name:
+         >>> say_my_name(001, "Rogers")
+         Traceback (most recent call last):
+         ...
+# Output: TypeError: first_name must be a string
+
+# Verifying integer as last name:
+         >>> say_my_name("Bambi", [15])
+	 Traceback (most recent call last):
+         ...
+# Output: TypeError: last_name must be a string
+
+# Verifying for more than 2 input:
+	 >>> say_my_name("Blessing", "Ogechi", "Udeji")
+	 Traceback (most recent call last):
+	 ...
+# Output: TypeError: say_my_name() takes from 1 to 2 positional arguments but 3 were given
