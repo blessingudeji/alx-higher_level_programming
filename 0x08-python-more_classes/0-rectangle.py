@@ -5,5 +5,5 @@ A class that defines a rectangle
 
 
 class Rectangle:
-    """This class does nothing"""
+    """The class does nothing"""
     pass
