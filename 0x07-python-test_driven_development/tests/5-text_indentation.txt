@@ -8,57 +8,54 @@ Importing the function from the module:
 >>> text_indentation = __import__('5-text_indentation').text_indentation
 
 # Pass the 'text' as an argument:
-	>>> text_indentation("hello. how are you?")
-	# Output: 
-	hello.
-	<BLANKLINE>
-	how are you?
-	<BLANKLINE>
+>>> text_indentation("hello. how are you?")
+# Output:
+# hello.
+
+# how are you?
 
 >>> text_indentation("hello. what's your name? I'm Grace")
-	hello.
-	<BLANKLINE>
-	what's your name? i'm Grace
+# hello.
+
+# what's your name? i'm Grace
 
 # Verifying for one word:
-	 >>> text_indentation("Hello")
-	 Hello
+>>> text_indentation("Hello")
+# Hello
 
-# Verifying for newline at beginning:
-	 >>> text_indentation(" \n Hello. how are you?")
-	 <BLANKLINE>
-	  Hello.
-	 <BLANKLINE>
-	 how are you??
-	 <BLANKLINE>
+# Verifying for newline at the beginning:
+>>> text_indentation(" \n Hello. how are you?")
+# Hello.
 
-# Verifying for newline at end:
-	 >>> text_indentation("Hello, how are you?\n")
-	 Hello, how are you?
-	 <BLANKLINE>
-	 <BLANKLINE>
+# how are you??
+
+# Verifying for newline at the end:
+>>> text_indentation("Hello, how are you?\n")
+# Hello, how are you?
 
 # Handling invalid inputs
 -------------------------
 
 # Verify for too many inputs:
-	 >>> text_indentation("Hello", "Hi")
-	 Traceback (most recent call last):
-	 ...
-# Output: TypeError: text_indentation() takes 1 positional argument but 2 were given
+>>> text_indentation("Hello", "Hi")
+# Traceback (most recent call last):
+# ...
+# TypeError: text_indentation() takes 1 positional argument but 2 were given
 
-# Verifying for inputing integers:
-	>>> text_indentation(2)
-	Traceback (most recent call last):
-# Output: TypeError: text must be a string
+# Verifying for inputting integers:
+>>> text_indentation(2)
+# Traceback (most recent call last):
+# ...
+# TypeError: text must be a string
 
-#Verifying for inputing None:
-	 >>> text_indentation(None)
-	 Traceback (most recent call last):
-	 ...
-# Output: TypeError: text must be a string
+# Verifying for inputting None:
+>>> text_indentation(None)
+# Traceback (most recent call last):
+# ...
+# TypeError: text must be a string
 
 # Verifying for no input:
-	>>> text_indentation()
-	Traceback (most recent call last):
-# Output: TypeError: text_indentation() missing 1 required positional argument: 'text'
+>>> text_indentation()
+# Traceback (most recent call last):
+# ...
+# TypeError: text_indentation() missing 1 required positional argument: 'text'
