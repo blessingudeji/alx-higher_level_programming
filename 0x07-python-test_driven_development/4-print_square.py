@@ -3,6 +3,9 @@
 
 
 def print_square(size):
+ """
+prints a square with "#" 
+"""
     if size == 0:
         return
     if not isinstance(size, int):
