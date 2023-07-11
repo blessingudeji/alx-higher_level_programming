@@ -1,24 +1,33 @@
 #!/usr/bin/python3
-"""student class."""
+"""
+Student class.
+"""
 
 
 class Student:
-    """class representation."""
+    """Class representation."""
     def __init__(self, first_name, last_name, age):
-        """initializes the class."""
+        """Initializes the class."""
         self.first_name = first_name
         self.last_name = last_name
         self.age = age
 
     def to_json(self, attrs=None):
-        """prints __dict__."""
-        if(attrs and isinstance(attrs, list) and
-           all(isinstance(x, str) for x in attrs)):
-            return ({x: y for x, y in self.__dict__.items() if x in attrs})
-        else:
+        """returns a dictionary representation of the class"""
+        if attrs is None:
             return self.__dict__
+        new_dict = {}
+        for x in attrs:
+            try:
+                new_dict[x] = self.__dict__[x]
+            except FileNotFoundError:
+                pass
+        return new_dict
 
     def reload_from_json(self, json):
         """replaces all attributes."""
-        if(json):
-            self.__dict__ = json
+        for key in json:
+            try:
+                setattr(self, key, json[key])
+            except FileNotFoundError:
+                pass
