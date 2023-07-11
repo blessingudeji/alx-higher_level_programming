@@ -1,17 +1,17 @@
 #!/usr/bin/python3
-"""student class"""
+"""student class."""
 
 
 class Student:
-    """class representation"""
+    """class representation."""
     def __init__(self, first_name, last_name, age):
-        """initializes the class"""
+        """initializes the class."""
         self.first_name = first_name
         self.last_name = last_name
         self.age = age
 
     def to_json(self, attrs=None):
-        """prints __dict__"""
+        """prints __dict__."""
         if(attrs and isinstance(attrs, list) and
            all(isinstance(x, str) for x in attrs)):
             return ({x: y for x, y in self.__dict__.items() if x in attrs})
@@ -19,6 +19,6 @@ class Student:
             return self.__dict__
 
     def reload_from_json(self, json):
-        """replaces all attributes"""
+        """replaces all attributes."""
         if(json):
             self.__dict__ = json
