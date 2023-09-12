@@ -1,9 +1,11 @@
 #!/usr/bin/node
 
-let nums = process.argv.slice(2).map(x => Number(x));
+const [, , ...args] = process.argv.map(Number);
+const list = [...new Set(args)];
 
-if (nums.length <= 1) {
+if (list.length <= 1) {
   console.log(0);
 } else {
-  console.log(nums.sort().reverse()[1]);
+  const sortedIntegers = list.sort((a, b) => b - a);
+  console.log(sortedIntegers[1]);
 }
